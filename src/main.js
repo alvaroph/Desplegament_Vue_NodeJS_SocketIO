@@ -4,7 +4,6 @@
  * Bootstraps Vuetify and other plugins then mounts the App`
  */
 
-import VueSocketIO from 'vue-socket.io';
 
 // Components
 import App from './App.vue'

@@ -7,7 +7,7 @@ var vueRef = null;
 // socket.on(..)
 // socket.on(..)
 // socket.on(..)
-socket.on('chat message', (msg) => {vueRef.conversacion.push(msg)});
+socket.on('chat message', () => {vueRef.mensajesRecibidos++});
 
 export function initSocket(vueObject) {
   vueRef = vueObject;

@@ -1,5 +1,6 @@
 <script>
-import {getPeliculas,infoDetallada} from '../services/communicationManager.js';
+import {getPeliculas,infoDetallada, enviarMensaje, initSocket} from '../services/communicationManager2.js';
+import XatLateral from './XatLateral.vue';
 export default {
     data() {
       return {
@@ -7,9 +8,19 @@ export default {
         result : [],
         details : {},
         isActive: false,
+        mensajesRecibidos:0
       }
     },
+    components: {
+        XatLateral
+    },
+    created() {
+        initSocket(this);        
+    },
     methods:{
+        sendMessage(){            
+            enviarMensaje(this.mensaje);
+        },
          cercaPelicula(){
             getPeliculas(this.searchString).then((response) => {
                 this.result = response;
@@ -28,18 +39,12 @@ export default {
   <template>
             <v-app class="rounded rounded-md">
             <v-app-bar title="Cercador de pel·licules"></v-app-bar>
-
-            <v-navigation-drawer>
-            <v-list>
-                <v-list-item title="Navigation drawer"></v-list-item>
-                
-            </v-list>
-            </v-navigation-drawer>
-
-           
+            <xat-lateral></xat-lateral>    
+            
             <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
                 <v-container class=" mb-6">
                 <v-row>
+                    {{ mensajesRecibidos }} mensajes recibidos 
                     <v-col cols="8">
                         <v-text-field
                         label="Titol a cercar"

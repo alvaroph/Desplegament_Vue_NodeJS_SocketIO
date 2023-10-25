@@ -5,6 +5,10 @@ const routes = [
   {
     path: '/',
     component: () => import('@/components/BuscadorPeliculas.vue'),
+  },
+  {
+    path: '/pedidos',
+    component: () => import('@/components/GestionPedidos.vue'),
   }
 ]
 
