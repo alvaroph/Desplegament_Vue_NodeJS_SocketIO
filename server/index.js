@@ -6,12 +6,10 @@ import { Server } from 'socket.io';
 const app = express();
 
 app.use(cors());
-/*app.use(cors({
-  origin: 'http://localhost:4000', // Replace with the actual origin of your client application
-  methods: ['GET', 'POST'],
-}));*/
+
 
 /*** LES SEGUENTS LINIES SON IMPORTANTS PER PODER TENIR RUTES DE CLIENT */
+/* ESTO ES IMPORTANTE CUANDO DESPLEGAMOS EN PRODUCCION */
 /*import history from 'connect-history-api-fallback'
 const app = express();
 const staticFileMiddleware = express.static('../dist');
@@ -30,7 +28,9 @@ const io = new Server(server,{
     methods: ['GET', 'POST'],
   }
 });
+
 /*
+ESTO ES SI QUEREMOS QUE NODE SIRVA A VUE
 app.use(express.static('public'))
 app.use(express.static('../dist'))
 app.get('/', (req, res) => {
@@ -44,6 +44,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3001, () => {
-  console.log('Server running at http://localhost:3001');
+server.listen(3013, () => {
+  console.log('Server running at http://localhost:3013');
 });
