@@ -11,8 +11,8 @@
                 <v-btn @click="sendMessage">Enviar</v-btn>
             </v-list>
             <ul>
-                <li v-for="actual in conversacion" v-bind:key="actual">
-                {{ actual }}
+                <li v-for="actual in chat" v-bind:key="actual">
+                {{ actual[0] }}
             </li>
             </ul>
             </v-navigation-drawer>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {enviarMensaje, initSocket} from '../services/communicationManager.js';
+import {  socket, state } from "@/socket";
 
 export default {
     data() {
@@ -31,12 +31,16 @@ export default {
     },
     methods:{
         sendMessage(){            
-            enviarMensaje(this.mensaje);
+            socket.emit('chat message', this.mensaje);
         },
       },
-
+      computed: {
+        chat() {
+          return state.chat;
+        },
+      },
     created() {
-        initSocket(this);        
+      //  initSocket(this);        
     },
 }
 </script>

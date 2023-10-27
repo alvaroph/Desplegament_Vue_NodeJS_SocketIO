@@ -1,6 +1,7 @@
 <script>
-import {getPeliculas,infoDetallada, enviarMensaje, initSocket} from '../services/communicationManager2.js';
+import {getPeliculas,infoDetallada} from '../services/communicationManager.js';
 import XatLateral from './XatLateral.vue';
+import { state } from "@/socket";
 export default {
     data() {
       return {
@@ -8,19 +9,20 @@ export default {
         result : [],
         details : {},
         isActive: false,
-        mensajesRecibidos:0
+        estado: state
       }
     },
+    computed: {
+        chat() {
+          return state.chat;
+        },
+      },
     components: {
         XatLateral
     },
-    created() {
-        initSocket(this);        
-    },
+  
     methods:{
-        sendMessage(){            
-            enviarMensaje(this.mensaje);
-        },
+      
          cercaPelicula(){
             getPeliculas(this.searchString).then((response) => {
                 this.result = response;
@@ -44,7 +46,14 @@ export default {
             <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
                 <v-container class=" mb-6">
                 <v-row>
-                    {{ mensajesRecibidos }} mensajes recibidos 
+                    <ul>
+                <li v-for="actual in chat" v-bind:key="actual">
+                {{ actual[0] }}
+            </li>
+            </ul>
+                    <!--div v-for="item in state.chat" v-bind:key="item">
+                        {{ item }} 
+                    </!--div-->
                     <v-col cols="8">
                         <v-text-field
                         label="Titol a cercar"

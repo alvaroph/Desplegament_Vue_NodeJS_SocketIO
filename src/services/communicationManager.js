@@ -1,18 +1,18 @@
 // ES6 import or TypeScript
 import { io } from "socket.io-client";
 const socket = io();
-var vueRef = null;
+//var vueRef = null;
 
 // socket.on(..)
 // socket.on(..)
 // socket.on(..)
 // socket.on(..)
-socket.on('chat message', (msg) => {vueRef.conversacion.push(msg)});
+//socket.on('chat message', (msg) => {vueRef.conversacion.push(msg)});
 
-export function initSocket(vueObject) {
+/*export function initSocket(vueObject) {
   vueRef = vueObject;
   console.log('initSocket');
-}
+}*/
 
 export function enviarMensaje(mensaje) {
   console.log('enviarMensaje');
