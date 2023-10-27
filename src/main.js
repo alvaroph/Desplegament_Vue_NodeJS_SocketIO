@@ -19,12 +19,3 @@ const app = createApp(App)
 registerPlugins(app)
 
 app.mount('#app')
-
-import VueSocketIO from 'vue-3-socket.io'
-
-app.use(new VueSocketIO({
-    debug: true,
-    connection: 'http://localhost:3001',
-
-   
-}))

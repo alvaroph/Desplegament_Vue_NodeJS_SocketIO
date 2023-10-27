@@ -5,11 +5,11 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 const app = express();
 
-
-app.use(cors({
+app.use(cors());
+/*app.use(cors({
   origin: 'http://localhost:4000', // Replace with the actual origin of your client application
   methods: ['GET', 'POST'],
-}));
+}));*/
 
 /*** LES SEGUENTS LINIES SON IMPORTANTS PER PODER TENIR RUTES DE CLIENT */
 /*import history from 'connect-history-api-fallback'
@@ -24,9 +24,7 @@ app.use(staticFileMiddleware);*/
 /*********FINAL******************* */
 
 const server = createServer(app);
-
-
-const io = new Server({
+const io = new Server(server,{
   cors: {
     origin: '*', // Replace with the actual origin of your client application
     methods: ['GET', 'POST'],
