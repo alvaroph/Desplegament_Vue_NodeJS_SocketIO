@@ -103,9 +103,4 @@ export default {
         </v-app>
   </template>
   
-  <style>
-  .greeting {
-    color: red;
-    font-weight: bold;
-  }
-  </style>@/services/socket.js
+ 
