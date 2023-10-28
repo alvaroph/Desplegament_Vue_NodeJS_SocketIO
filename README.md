@@ -2,68 +2,12 @@
 
 ## Project setup
 
-```
-# yarn
-yarn
+Aqui tenim un desplegament en el que la part de frontend está servida per NodeJS. 
 
-# npm
-npm install
+El port es configura al servidor node. Si volem desplegar al labs, haurem de buscar un port 
+que estigui lliure. 
 
-# pnpm
-pnpm install
+Si el front i el backend estan servits pel mateix servidor no hi han problemes de CORS.
 
-# pnpm
-bun install
-```
-
-### Compiles and hot-reloads for development
-
-```
-# yarn
-yarn dev
-
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# bun
-bun run dev
-```
-
-### Compiles and minifies for production
-
-```
-# yarn
-yarn build
-
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# bun
-bun run build
-```
-
-### Lints and fixes files
-
-```
-# yarn
-yarn lint
-
-# npm
-npm run lint
-
-# pnpm
-pnpm lint
-
-# bun
-bun run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://vitejs.dev/config/).
+S'ha de tenir en compte que al servidor de NODEJS s'han d'afegir unes linies d'API Fallback. 
+( aixó vol dir que el routing de vue funcionará amb node. Primer el servidor intenta servir la ruta i sino pot, pasa el control a index.html qui es qui gestionarà la ruta).
