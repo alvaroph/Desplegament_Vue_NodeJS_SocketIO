@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {  socket, state } from "@/socket";
+import {  socket, state } from "@/services/socket";
 
 export default {
     data() {

@@ -1,7 +1,7 @@
 <script>
 import {getPeliculas,infoDetallada} from '../services/communicationManager.js';
 import XatLateral from './XatLateral.vue';
-import { state } from "@/socket";
+import { state } from "@/services/socket";
 export default {
     data() {
       return {
@@ -21,8 +21,7 @@ export default {
         XatLateral
     },
   
-    methods:{
-      
+    methods:{     
          cercaPelicula(){
             getPeliculas(this.searchString).then((response) => {
                 this.result = response;
@@ -111,4 +110,4 @@ export default {
     color: red;
     font-weight: bold;
   }
-  </style>
+  </style>@/services/socket.js
