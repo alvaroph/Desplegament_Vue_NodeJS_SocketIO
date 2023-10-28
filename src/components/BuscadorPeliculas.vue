@@ -50,9 +50,6 @@ export default {
                 {{ actual[0] }}
             </li>
             </ul>
-                    <!--div v-for="item in state.chat" v-bind:key="item">
-                        {{ item }} 
-                    </!--div-->
                     <v-col cols="8">
                         <v-text-field
                         label="Titol a cercar"
@@ -105,9 +102,4 @@ export default {
         </v-app>
   </template>
   
-  <style>
-  .greeting {
-    color: red;
-    font-weight: bold;
-  }
-  </style>@/services/socket.js
+  
