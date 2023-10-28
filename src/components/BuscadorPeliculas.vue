@@ -1,7 +1,8 @@
 <script>
 import {getPeliculas,infoDetallada} from '../services/communicationManager.js';
 import XatLateral from './XatLateral.vue';
-import { state } from "@/socket";
+import { state } from "@/services/socket";
+
 export default {
     data() {
       return {
@@ -21,8 +22,7 @@ export default {
         XatLateral
     },
   
-    methods:{
-      
+    methods:{     
          cercaPelicula(){
             getPeliculas(this.searchString).then((response) => {
                 this.result = response;
@@ -47,14 +47,11 @@ export default {
                 <v-container class=" mb-6">
                 <v-row>
                     <ul>
-                <li v-for="actual in chat" v-bind:key="actual">
-                {{ actual[0] }}
-            </li>
-            </ul>
-                    <!--div v-for="item in state.chat" v-bind:key="item">
-                        {{ item }} 
-                    </!--div-->
-                    <v-col cols="8">
+                        <li v-for="actual in chat" v-bind:key="actual">
+                        {{ actual[0] }}
+                        </li>
+                    </ul>
+                        <v-col cols="8">
                         <v-text-field
                         label="Titol a cercar"
                         hide-details="auto"
@@ -111,4 +108,4 @@ export default {
     color: red;
     font-weight: bold;
   }
-  </style>
+  </style>@/services/socket.js
