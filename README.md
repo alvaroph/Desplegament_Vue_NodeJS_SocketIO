@@ -1,69 +1,7 @@
-# base
+# Desplegament de Vue + NodeJS + Socket.IO
 
-## Project setup
+## Consideracions del escenari
 
-```
-# yarn
-yarn
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# pnpm
-bun install
-```
-
-### Compiles and hot-reloads for development
-
-```
-# yarn
-yarn dev
-
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# bun
-bun run dev
-```
-
-### Compiles and minifies for production
-
-```
-# yarn
-yarn build
-
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# bun
-bun run build
-```
-
-### Lints and fixes files
-
-```
-# yarn
-yarn lint
-
-# npm
-npm run lint
-
-# pnpm
-pnpm lint
-
-# bun
-bun run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://vitejs.dev/config/).
+En aquesta fase volem fer servir Vue servit per Vite al port 4000. Volem poder treballar amb npm run dev i no haver d'estar fent build cada vegada que volem provar. 
+Tenim un servidor NodeJs que farà de servidor de Socket al port 3000 que volem que accepti peticions desde Vue.
+Necessitem configurar CORS per a que no hi hagi problemes de connexió.
