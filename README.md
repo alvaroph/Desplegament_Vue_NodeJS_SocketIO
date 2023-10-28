@@ -20,7 +20,8 @@ Per interactuar amb l'objecte state podem fer servir computed() per poder accedi
 
 ## Funcionament repositori
 
-Tenim 2 branques al repositori (canvieu per escollir l'escenari de treball)
+Tenim 2 branques al repositori (canvieu per escollir l'escenari de treball). 
+No feu servir main
 
 1. Treball en desenvolupament local
 2. Desplegament a servidor
